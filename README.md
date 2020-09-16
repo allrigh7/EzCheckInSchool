@@ -16,13 +16,9 @@
 
 部分老版本可能存在打卡失败 Gateway timeout 504错误，建议更新新版本。
 
-2020.9.16 21:35 代码重构，更新多用户版
+2020.9.16 21:35 更新多用户版，使用WxPusher，致谢[@themanforfree](https://github.com/themanforfree)
 
-2020.9.14 12:40 使用方法再次优化
-
-2020.9.13 20:45 更新免抓包方式及使用方法
-
-2020.9.12 7:00 修复时间判断代码，现在将正常打卡三次
+2020.9.14 12:40 使用方法优化
 
 ## 使用方法
 
@@ -30,7 +26,13 @@
 
 ![Star and fork](https://s1.ax1x.com/2020/09/16/w22nDx.png)
 
-使用Github登入[Server酱](http://sc.ftqq.com/)并微信绑定以便可以收到结果推送
+点击下方链接微信扫码关注，以便获取打卡结果推送
+
+[Wechat QRCode](http://wxpusher.zjiecode.com/api/qrcode/FHFBNBtuM9q4rmR2AS2okzHcBEoh9pFa1JsseEb0PXixltPGFh3UFaw0qwLH4sSJ.jpg)
+
+关注后点击我的->我的UID，获取你的UID
+
+![WxPusher UID](https://s1.ax1x.com/2020/09/16/w2W6H0.png)
 
 接下来你需要设置`Secret` Fork的项目->Settings->Secret->New Secret
 
@@ -47,7 +49,7 @@
 |`DEPT_TEXT`|`学院-专业-班级1,2,...`|`理学院-应用物理学-应物1901,理学院-应用物理学-应物1902`|
 |`STU_ID`|`学号1,2,...`|`201912340101,201912340201`|
 |`STU_NAME`|`姓名1,2,...`|`小明,小华`|
-|`SC_KEY`|[`Server酱调用代码`](http://sc.ftqq.com/?c=code)|`SCUabcdefghigklmnopqrstuvwxyz`| 
+|`WX_UID`|`WxPusher UID1,2,...`|`UID_abcdefghijklm,UID_nopqrstuvwxyz`| 
 
 以上步骤完成后
 

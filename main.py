@@ -19,7 +19,7 @@ def main():
     stu_name = input().split(',')
     stu_id = input().split(',')
     dept_text = input().split(',')
-    sc_url = input().split(',')
+    wx_uid = input().split(',')
 
     # 时间判断 Github Actions采用国际标准时
     hms = update_time()
@@ -44,7 +44,7 @@ def main():
         else:
             title = time_msg + '打卡失败，请手动补卡'
         print(value[-4:] + ' ' + title)
-        sc_push(sc_url[index], title, response)
+        wx_push(wx_uid[index], title, response)
         hms = update_time()
 
 
@@ -88,6 +88,8 @@ def get_class_id(dept_text):
             if (class_['name'] == class_name) & (class_['parentId'] == major_id):
                 class_id = class_['deptId']
                 break
+        if class_id:
+            print()
     except NameError:
         print_info_error()
         exit(1)
@@ -161,21 +163,28 @@ def check_in(stu_name, stu_id, dept_text, customer_app_type_rule_id):
     return response.text
 
 
-def sc_push(sc_key, title, response):
+def wx_push(wx_uid, title, response):
     # 微信通知
-    sc_url = 'https://sc.ftqq.com/' + sc_key + '.send'
+    wx_pusher_url = 'http://wxpusher.zjiecode.com/api/send/message'
     content = f"""
     
 ```
 {response}
 ```
-### 😀[收藏](https://github.com/chillsoul/EzCheckInSchool)此项目
+
+### 💴扫码捐赠一杯咖啡
+<center><img src="https://s1.ax1x.com/2020/09/16/w25Jxg.png"/></center>
+### 😢[反馈](github.com/chillsoul/EzCheckInSchool/issue)
+### 😀[记得Star此项目](github.com/chillsoul/EzCheckInSchool)
         """
     data = {
-        "text": title,
-        "desp": content
+        "appToken": "AT_bVK4MZob9c9acNmLbWHN6RjQxeGllOOB",
+        "content": content,
+        "summary": title,
+        "contentType": 3,
+        "uids": [wx_uid]
     }
-    requests.post(sc_url, data=data)
+    response = requests.post(wx_pusher_url, json=data)
 
 
 if __name__ == '__main__':

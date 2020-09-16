@@ -32,5 +32,5 @@ jobs:
         ${{secrets.STU_NAME}}
         ${{secrets.STU_ID}}
         ${{secrets.DEPT_TEXT}}
-        ${{secrets.SC_KEY}}
+        ${{secrets.WX_UID}}
         EOF
