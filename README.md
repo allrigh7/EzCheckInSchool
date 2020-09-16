@@ -1,5 +1,5 @@
 # EzCheckInSchool
-最简单的完美校园自动健康打卡，基于Github Actions免服务器运行。
+最简单的完美校园自动健康打卡，基于Github Actions免服务器运行。                
 
 - 多人打卡👨‍👩‍👧‍👦
 - 仅需学号姓名🎫
